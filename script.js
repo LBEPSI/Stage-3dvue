@@ -5,21 +5,23 @@ const API_3DVUE = {
 
 //on attend que le document soit prêt
 document.addEventListener('DOMContentLoaded', () => {
-    // Configuration pour chaque iframe
-    const iframes = {
-        iframe1: {
-            element: document.getElementById("iframe1"),
-            window: null,
-            ready: false,
-            config: []
-        },
-        iframe2: {
-            element: document.getElementById("iframe2"),
-            window: null,
-            ready: false,
-            config: []
+    // Initialisation de l'objet qui contiendra toutes nos iframes
+    const iframes = {};
+
+    // BOUCLE : on récupère toutes les iframes de la page 
+    document.querySelectorAll("iframe").forEach(iframe => {
+        const id = iframe.id;
+
+        if (id) {
+            // structure de données de chaque iframe
+            iframes[id] = {
+                element: iframe,
+                window: iframe.contentWindow,
+                ready: false,
+                config: []
+            };
         }
-    };
+    });
 
     // Initialiser les windows des iframes (sotcker dans contentWindow) pour eviter de devoir les chercher à chaque fois
     Object.keys(iframes).forEach(key => {

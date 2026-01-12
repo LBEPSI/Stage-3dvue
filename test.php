@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 
     <style>
-        #iframe1, #iframe2 {
+        #vue3d-iframe1, #vue3d-iframe2, #vue3d-iframe3 {
             width: 100%;
             min-height: 600px;
             border: none;
@@ -30,8 +30,8 @@
     <div class="row mt-3 mb-3">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="FormAssise"><strong>Assise</strong></label>
-                <select class="form-control config-select" id="FormAssise" data-index="4" data-iframe="iframe1">
+                <label for="vue3d-FormAssise"><strong>Assise</strong></label>
+                <select class="form-control config-select" id="vue3d-FormAssise" data-index="4" data-iframe="iframe1">
                     <option value="0p">Tissu cuir noir</option>
                     <option value="0n">Tissu coton gris</option>
                     <option value="0o">Tissu cuir beige</option>
@@ -43,8 +43,8 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="FormsPied"><strong>Pieds</strong></label>
-                <select class="form-control config-select" id="FormsPied" data-index="1" data-iframe="iframe1">
+                <label for="vue3d-FormsPied"><strong>Pieds</strong></label>
+                <select class="form-control config-select" id="vue3d-FormsPied" data-index="1" data-iframe="iframe1">
                     <option value="2d">Bois chêne clair</option>
                     <option value="1q">Métal noir brossé</option>
                     <option value="08">Métal gris matte</option>
@@ -63,15 +63,15 @@
     <div class="row">
         <div class="col">
             <div id="iframe-container">
-                <iframe id='iframe1' src="https://mobilier-v3.3dvue.fr?p=0s2d0b0c0p"></iframe>
+                <iframe id='vue3d-iframe1' src="https://mobilier-v3.3dvue.fr?p=0s2d0b0c0p"></iframe>
             </div>
         </div>
     </div>
 
     <div class="col-md-6">
             <div class="form-group">
-                <label for="FormsTotal"><strong>Total</strong></label>
-                <select class="form-control config-select" id="FormsTotal" data-index="1" data-iframe="iframe2">
+                <label for="vue3d-FormsTotal"><strong>Total</strong></label>
+                <select class="form-control config-select" id="vue3d-FormsTotal" data-index="1" data-iframe="iframe2">
                     <option value="2d">Bois chêne clair</option>
                     <option value="1q">Métal noir brossé</option>
                     <option value="08">Métal gris matte</option>
@@ -82,10 +82,13 @@
     <div class="row">
         <div class="col">
             <div id="iframe-container">
-                <iframe id='iframe2' src="https://mobilier-v3.3dvue.fr/?p=0c032f4831"></iframe>
+                <iframe id='vue3d-iframe2' src="https://mobilier-v3.3dvue.fr/?p=0c032f4831"></iframe>
             </div>
         </div>
     </div>
+
+
+
     <div class="row mt-3">
         <div class="col text-muted small text-center">
             Propulsé par 3DVUE - Configuration dynamique
