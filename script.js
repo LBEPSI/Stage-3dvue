@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialisation de l'objet qui contiendra toutes nos iframes
     const iframes = {};
 
-    // BOUCLE : on récupère toutes les iframes de la page 
+    // BOUCLE : on récupère toutes les iframes de la page
     document.querySelectorAll("iframe").forEach(iframe => {
+        //data attribute plutot que ID
         const id = iframe.id;
+        //get de l'attribut src regex pour récupérer le paramètre d'url p, changer le nom de la key config en id
+        //on garde uniquement element, id et ready
 
         if (id) {
             // structure de données de chaque iframe
@@ -24,17 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialiser les windows des iframes (sotcker dans contentWindow) pour eviter de devoir les chercher à chaque fois
+    /*
     Object.keys(iframes).forEach(key => {
         if (iframes[key].element) {
             iframes[key].window = iframes[key].element.contentWindow;
         }
     });
+     */
 
     window.addEventListener("message", function (event) {
         // on ignore les messages vides ou sans l'objet 'data' interne
         if (!event.data || !event.data.data) return;
 
         // parsing obligatoire (selon la doc)
+        //try / catch
         const payload = JSON.parse(event.data.data);
 
         // l'iframe confirme le chargement
@@ -46,12 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     iframe.ready = true;
 
                     // LOAD_COMPLETE contient déjà le product_id
+                    //inutile
                     if (payload.product_id) {
                         iframe.config = payload.product_id.match(/.{1,2}/g);
                         console.log(`Config Initialisée pour ${key}:`, iframe.config);
                     }
 
                     // une demande les métadonnées pour être sûr
+                    // inutile
                     iframe.window.postMessage({ action: API_3DVUE.ACTION.GET_MODEL_DATA }, "*");
                 }
             });
@@ -61,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // fonction unique pour mettre à jour le modèle
     function applyChange(iframeId, index, value) {
         const iframe = iframes[iframeId];
+        //ne pas oublier les logs en cas d'erreur
         if (!iframe || !iframe.ready) return;
 
         // mise à jour du tableau local
