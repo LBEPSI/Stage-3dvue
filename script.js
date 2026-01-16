@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Mise à jour du tableau local
-        iframe.id_array[parseInt(meshUrlId)+1] = value;
+        iframe.id_array[parseInt(meshUrlId)] = value;
         const newId = iframe.id_array.join("");
 
         // Envoi à l'iframe
@@ -83,10 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Écouteur pour les BOUTONS (clic)
-    document.querySelectorAll(".config-trigger").forEach(button => {
-        button.addEventListener("click", function () {
-            const iframeKey = this.dataset.iframe;
-            applyChange(iframeKey, this.dataset.index, this.dataset.value);
+    document.querySelectorAll("[vue3d-button]").forEach(el => {
+        el.addEventListener("click", function () {
+            const iframeKey = this.getAttribute("vue3d-iframe-target");
+            const meshUrlId = this.getAttribute("vue3d-mesh-url-id");
+            applyChange(iframeKey, meshUrlId, this.value);
         });
     });
 });

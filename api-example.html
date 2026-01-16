@@ -34,7 +34,7 @@
                     <label><strong>Assise</strong></label>
                     <select class="form-control"
                             vue3d-iframe-target="chaise"
-                            vue3d-mesh-url-id="3"
+                            vue3d-mesh-url-id="4"
                             vue3d-select>
                         <option value="0p">Tissu cuir noir</option>
                         <option value="0n">Tissu coton gris</option>
@@ -48,8 +48,10 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="vue3d-FormsPied"><strong>Pieds</strong></label>
-                    <select class="form-control config-select" id="vue3d-FormsPied" data-index="1"
-                        data-iframe="iframe1">
+                    <select class="form-control"
+                            vue3d-iframe-target="chaise"
+                            vue3d-mesh-url-id="1"
+                            vue3d-select>
                         <option value="2d">Bois chêne clair</option>
                         <option value="1q">Métal noir brossé</option>
                         <option value="08">Métal gris matte</option>
@@ -60,12 +62,24 @@
 
         <div class="mt-3 mb-2">
             <label><strong>Choix rapide des pieds :</strong></label><br>
-            <button type="button" class="btn btn-outline-primary config-trigger" data-index="1" data-value="2d"
-                data-iframe="iframe1" vue3d-button>Chêne</button>
-            <button type="button" class="btn btn-outline-primary config-trigger" data-index="1" data-value="1q"
-                data-iframe="iframe1">Métal Noir</button>
-            <button type="button" class="btn btn-outline-primary config-trigger" data-index="1" data-value="08"
-                data-iframe="iframe1">Métal Gris</button>
+            <button type="button" 
+                    class="btn btn-outline-primary config-trigger" 
+                    vue3d-mesh-url-id="1" 
+                    value="2d"
+                    vue3d-iframe-target="chaise" 
+                    vue3d-button>Chêne</button>
+            <button type="button" 
+                    class="btn btn-outline-primary config-trigger" 
+                    vue3d-mesh-url-id="1" 
+                    value="1q"
+                    vue3d-iframe-target="chaise"
+                    vue3d-button>Métal Noir</button>
+            <button type="button" 
+                    class="btn btn-outline-primary config-trigger" 
+                    vue3d-mesh-url-id="1" 
+                    value="08"
+                    vue3d-iframe-target="chaise" 
+                    vue3d-button>Métal Gris</button>
         </div>
 
         <div class="row">
@@ -80,7 +94,10 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="vue3d-FormsTotal"><strong>Total</strong></label>
-                <select class="form-control config-select" id="vue3d-FormsTotal" data-index="1" data-iframe="iframe2">
+                <select class="form-control config-select" 
+                        vue3d-iframe-target="lampe"
+                        vue3d-mesh-url-id="1"
+                        vue3d-select>
                     <option value="2d">Bois chêne clair</option>
                     <option value="1q">Métal noir brossé</option>
                     <option value="08">Métal gris matte</option>
@@ -91,7 +108,7 @@
         <div class="row">
             <div class="col">
                 <iframe
-                    vue3d-iframe="chaise"
+                    vue3d-iframe="lampe"
                     src="https://mobilier-v3.3dvue.fr/?p=0c032f4831">
                 </iframe>
             </div>
